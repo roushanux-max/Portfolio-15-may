@@ -1,14 +1,13 @@
-name: Scrape Framer Content
+﻿name: Scrape Framer Content
 
 on:
   push:
     branches: [ main, master ]
-  workflow_dispatch: # Allows manual triggering
+  workflow_dispatch:
 
 jobs:
   scrape:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -28,9 +27,10 @@ jobs:
         env:
           TARGET_URL: "https://roushan.framer.website"
 
-      - name: Upload Content Artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: framer-content-extract
-          path: framer-content.json
-          retention-days: 5
+      - name: Commit and Push Content
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add framer-content.json
+          git diff --quiet && git diff --staged --quiet || git commit -m "Update scraped content"
+          git push
