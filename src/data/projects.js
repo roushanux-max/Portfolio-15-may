@@ -1,43 +1,47 @@
 ﻿export const projects = [
   {
-    slug: 'full-portfolio',
-    title: 'UI/UX Design Collection',
-    category: 'Design & Development',
-    cover: '/assets/projects/23N5t01nYZ8wByBSkY8oDXq5DH8.png',
-    video: /assets/projects/1st.mp4,
-    description: 'A comprehensive showcase of my latest UI/UX design projects, featuring interactive prototypes and visual systems.',
-    images: [
-      '/assets/projects/23N5t01nYZ8wByBSkY8oDXq5DH8.png',
-      '/assets/projects/2GJDSg7RBKlA4CRpGAOgDWoq1I.png',
-      '/assets/projects/diSnALBTYBCZ1ucmUXt0F8bsEOY.jpg',
-      '/assets/projects/DiT0AjiPApWtO5B0iv2chsQf34.jpg',
-      '/assets/projects/ErBoP46KXUdX53tMEH62HxKJJqU.jpg',
-      '/assets/projects/framer-logo-blue-UQOIW3P5.png',
-      '/assets/projects/gaFKnguHEFQExCYHlmHDjoY5egc.png',
-      '/assets/projects/HdopiU5CNvnYltKa9BUuB3VdQM.jpg',
-      '/assets/projects/Home ds.png',
-      '/assets/projects/Home.png',
-      '/assets/projects/Log In Screen.png',
-      '/assets/projects/Log In Screen-1.png',
-      '/assets/projects/Log In Screen-2.png',
-      '/assets/projects/Log In Screen-3.png',
-      '/assets/projects/Log In Screen-4.png',
-      '/assets/projects/Log In Screen-5.png',
-      '/assets/projects/Log In Screen-6.png',
-      '/assets/projects/Log In Screen-7.png',
-      '/assets/projects/Log In Screen-8.png',
-      '/assets/projects/Log In Screen-9.png',
-      '/assets/projects/NaieCover.png',
-      '/assets/projects/NDA phone'.png',
-      '/assets/projects/NDA.png',
-      '/assets/projects/PN62j890VGtNuEKEIQM6MhGOA.webp',
-      '/assets/projects/Screenshot 2026-05-21 165421.png',
-      '/assets/projects/Screenshot 2026-05-21 165605.png',
-      '/assets/projects/Splash-3.png',
-      '/assets/projects/t2GLwdkI4irC1GKFfFYiHALqFw.jpg',
-      '/assets/projects/TEpIlVzxxaMTMsnYVnueWcg2h94.jpg',
-      '/assets/projects/TTzTzF5PsBgoBxwYGVgWHqCRi8.jpg',
-      '/assets/projects/YlM0cJ6UzAX9T6fBj74dp7UegE.png'
-    ]
+    slug: 'roushani',
+    title: 'Roushani',
+    category: 'Brand Identity',
+    cover: '/assets/projects/Roushani.mp4', // Video as cover
+    video: '/assets/projects/Roushani.mp4',
+    description: 'A comprehensive brand identity project showcasing modern design principles.',
+    images: []
+  },
+  {
+    slug: 'nda',
+    title: 'NDA Platform',
+    category: 'Web Design',
+    cover: '/assets/projects/NDA.mp4',
+    video: '/assets/projects/NDA.mp4',
+    description: 'Secure document management interface with intuitive user flow.',
+    images: []
+  },
+  {
+    slug: 'interanet',
+    title: 'Interanet',
+    category: 'Dashboard',
+    cover: '/assets/projects/Interanet.mp4',
+    video: '/assets/projects/Interanet.mp4',
+    description: 'Internal communication hub designed for enterprise efficiency.',
+    images: []
+  },
+  {
+    slug: 'bridge2business',
+    title: 'Bridge2Business',
+    category: 'Corporate',
+    cover: '/assets/projects/Bridge2business.mp4',
+    video: '/assets/projects/Bridge2business.mp4',
+    description: 'B2B networking platform connecting industry leaders.',
+    images: []
+  },
+  {
+    slug: '1st',
+    title: '1st Project',
+    category: 'Innovation',
+    cover: '/assets/projects/1st.mp4',
+    video: '/assets/projects/1st.mp4',
+    description: 'Pioneering digital solution for next-gen users.',
+    images: []
   }
 ];
