@@ -1,0 +1,18 @@
+﻿{
+  "title": "Roushan | Creative Developer",
+  "metaDescription": "Building digital experiences with code and motion.",
+  "headings": [
+    { "tag": "h1", "text": "Creative Developer" }
+  ],
+  "images": [
+    { "src": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop", "alt": "Abstract Design Project" },
+    { "src": "https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=1000&auto=format&fit=crop", "alt": "Fluid Simulation" },
+    { "src": "https://images.unsplash.com/photo-1634152962476-4b8a00e1915c?q=80&w=1000&auto=format&fit=crop", "alt": "Dark Mode UI" },
+    { "src": "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?q=80&w=1000&auto=format&fit=crop", "alt": "3D Render" }
+  ],
+  "videos": [],
+  "paragraphs": [
+    "I specialize in building immersive web experiences using modern technologies like React, GSAP, and WebGL.",
+    "My approach combines technical precision with artistic vision to create products that stand out."
+  ]
+}
