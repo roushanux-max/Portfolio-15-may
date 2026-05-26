@@ -1,0 +1,36 @@
+name: Scrape Framer Content
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Dependencies
+        run: |
+          npm install playwright
+          npx playwright install --with-deps chromium
+
+      - name: Run Scraper Script
+        run: node scraper.js
+        env:
+          TARGET_URL: "https://roushan.framer.website"
+
+      - name: Upload Content Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: framer-content-extract
+          path: framer-content.json
+          retention-days: 5
