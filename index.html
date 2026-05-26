@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Framer Content Viewer</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f5f5f7; color: #1d1d1f; margin: 0; padding: 20px; line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 40px; padding: 40px 0; }
+        h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .section { background: #fff; border-radius: 12px; padding: 30px; margin-bottom: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .section h2 { border-bottom: 2px solid #f5f5f7; padding-bottom: 10px; margin-top: 0; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+        .card { background: #f5f5f7; border-radius: 8px; overflow: hidden; }
+        .card img { width: 100%; height: auto; display: block; }
+        .card-caption { padding: 12px; font-size: 0.85rem; color: #86868b; }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #000; border-radius: 8px; margin-bottom: 20px; }
+        .video-container iframe, .video-container video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .error { color: #ff3b30; text-align: center; padding: 20px; background: #ffe5e5; border-radius: 8px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1 id="page-title">Loading...</h1>
+        <div id="page-meta"></div>
+    </header>
+    <div id="content-area"><p>Loading data...</p></div>
+</div>
+<script>
+    fetch('./framer-content.json?t=' + new Date().getTime())
+    .then(r => r.json())
+    .then(data => {
+        document.getElementById('page-title').innerText = data.title || 'Portfolio';
+        document.getElementById('page-meta').innerText = data.metaDescription || data.url;
+        let html = '';
+        if(data.headings && data.headings.length) {
+            html += '<div class="section"><h2>Headings</h2><ul>';
+            data.headings.forEach(h => html += '<li><b>'+h.tag+'</b>: '+h.text+'</li>');
+            html += '</ul></div>';
+        }
+        if(data.images && data.images.length) {
+            html += '<div class="section"><h2>Images ('+data.images.length+')</h2><div class="grid">';
+            data.images.forEach(img => html += '<div class="card"><img src="'+img.src+'" alt="'+img.alt+'"><div class="card-caption">'+(img.alt||'')+'</div></div>');
+            html += '</div></div>';
+        }
+        if(data.videos && data.videos.length) {
+            html += '<div class="section"><h2>Videos</h2>';
+            data.videos.forEach(v => {
+                if(v.type==='embed') html += '<div class="video-container"><iframe src="'+v.src+'" frameborder="0" allowfullscreen></iframe></div>';
+                else html += '<div class="video-container"><video controls><source src="'+v.src+'"></video></div>';
+            });
+            html += '</div>';
+        }
+        if(data.paragraphs && data.paragraphs.length) {
+            html += '<div class="section"><h2>Text</h2>';
+            data.paragraphs.forEach(p => html += '<p>'+p+'</p>');
+            html += '</div>';
+        }
+        document.getElementById('content-area').innerHTML = html || '<div class="error">No content found.</div>';
+    })
+    .catch(e => document.getElementById('content-area').innerHTML = '<div class="error">Error loading JSON: '+e.message+'</div>');
+</script>
+</body>
+</html>
